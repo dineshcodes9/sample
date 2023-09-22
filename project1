@@ -1,1 +1,36 @@
-hi hello namastey aadab....
+inventory=[("Atta",120),("Soap",40),("Kitkat",10),("Dairymilk",40),("Milkybar",20),("Softdrink",15),("Icecreams",100),("Books",60),("Pen",10),("Battery",10)]
+user_cart=[]
+WantMore=True
+TotalSum=0
+sumArray=[]
+Price=1
+width=12
+while(WantMore):
+    print("Inventory:")
+    for i in inventory:
+        print(i)
+    itemtuple=[]
+    print()
+    item=(input("Enter the item name:")).title()
+    quantity=int(input("Enter the quantity required:"))
+    itemtuple=(item,quantity)
+    user_cart.append(itemtuple)
+    for i in inventory:
+        sum=0
+        if(item == i[0]):
+            Price=i[1]
+        sum+=Price*quantity
+    sumArray.append(sum) 
+    TotalSum+=sum
+    YesorNo=input("\nDo you want to continue (yes or no): ")
+    if(YesorNo=="no" or YesorNo=="No"):
+        WantMore=False
+print("\n\nReceipt:\n")
+count=0
+for i in user_cart:
+    str2= i[0]
+    str1=str(str2).ljust(width," ")
+    print(f"Item Name : {str1} Quantity : {i[1]}    Price : {sumArray[count]}")
+    count+=1
+print("\nTotalSum :",TotalSum)
+
